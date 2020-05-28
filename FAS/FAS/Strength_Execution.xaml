@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FAS.Strength_Execution">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label x:Name="LTrainingsplan" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Label x:Name="LExcercise"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+        <Label x:Name="LExcerciseNumber"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"/>
+
+        <Label Text="Done Sets"></Label>
+        <Entry x:Name="Esets" Keyboard="Numeric" Text="4"></Entry>
+
+        <Label Text="Done Reps"></Label>
+        <Entry x:Name="Ereps" Keyboard="Numeric" Text="5"></Entry>
+
+        <Label Text="Whith what Wheigt"></Label>
+        <Entry x:Name="Ewheight" Keyboard="Numeric" Text="10"></Entry>
+
+        <Button x:Name="Next" Text="Next Excercise - Stay Strong!" Clicked="Next_Excercise"></Button>
+        <Button x:Name="Last" Text="Last Excercise - Nice!" Clicked="Last_Excercise" IsVisible="false"></Button>
+    </StackLayout>
+
+</ContentPage>

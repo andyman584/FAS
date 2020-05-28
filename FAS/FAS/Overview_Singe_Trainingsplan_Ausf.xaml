@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FAS.Overview_Singe_Trainingsplan_Ausf">
+
+    <StackLayout>
+        <Button Clicked="GoGoStatistics" Text="Statistics"></Button>
+        
+        <Frame BackgroundColor="red" BorderColor="Black" Padding="0">
+            <Grid Padding="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Margin="10, 0, 10, 0" Text="Datum" VerticalOptions="Center" Grid.Column="0"></Label>
+                <Label Margin="10, 0, 10, 0" Text="Übung" VerticalOptions="Center" Grid.Column="1"></Label>
+                <Label Margin="10, 0, 10, 0" Text="Sets" VerticalOptions="Center" Grid.Column="2"></Label>
+                <Label Margin="10, 0, 10, 0" Text="Reps" VerticalOptions="Center" Grid.Column="3"></Label>
+                <Label Margin="10, 0, 10, 0" Text="Gewicht" VerticalOptions="Center" Grid.Column="4"></Label>
+
+                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+
+            </Grid>
+        </Frame>
+
+        <ListView x:Name="lv_Done">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BorderColor="Azure" Padding="0">
+                            <Grid Padding="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Margin="10, 0, 10, 0" Text="{Binding start}" VerticalOptions="Center" Grid.Column="0"></Label>
+                                <Label Margin="10, 0, 10, 0" Text="{Binding excercise_name}" VerticalOptions="Center" Grid.Column="1"></Label>
+                                <Label Margin="10, 0, 10, 0" Text="{Binding sets}" VerticalOptions="Center" Grid.Column="2"></Label>
+                                <Label Margin="10, 0, 10, 0" Text="{Binding reps}" VerticalOptions="Center" Grid.Column="3"></Label>
+                                <Label Margin="10, 0, 10, 0" Text="{Binding wheight}" VerticalOptions="Center" Grid.Column="4"></Label>
+
+                                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="0" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="1" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="2" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="3" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+                                <BoxView BackgroundColor="DarkSlateBlue" WidthRequest="1" Grid.Column="4" HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand"></BoxView>
+
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+           
+        </ListView>
+        
+
+        <Button Text="Go back to Start and Collect 200€" Clicked="ToStartPage" />
+    </StackLayout>
+
+</ContentPage>

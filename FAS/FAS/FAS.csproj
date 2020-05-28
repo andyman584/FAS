@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="akavache.sqlite3" Version="6.10.17" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="System.ObjectModel" Version="4.3.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Strength_Execution.xaml.cs">
+      <DependentUpon>Strength_Execution.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="New_Move.xaml.cs">
+      <DependentUpon>New_Move.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Singe_Trainingsplan_Ausf_Statistic.xaml.cs">
+      <DependentUpon>Overview_Singe_Trainingsplan_Ausf_Statistic.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Singe_Trainingsplan_Ausf.xaml.cs">
+      <DependentUpon>Overview_Singe_Trainingsplan_Ausf.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Single_Trainingsplan.xaml.cs">
+      <DependentUpon>Overview_Single_Trainingsplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="New_Trainingsplan.xaml.cs">
+      <DependentUpon>New_Trainingsplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="SE_Trainingsplan.xaml.cs">
+      <DependentUpon>SE_Trainingsplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="SE_Excercises.xaml.cs">
+      <DependentUpon>SE_Excercises.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Done_Trainingsplan.xaml.cs">
+      <DependentUpon>Overview_Done_Trainingsplan.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Moving_StartPage.xaml.cs">
+      <DependentUpon>Moving_StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Strength_StartPage.xaml.cs">
+      <DependentUpon>Strength_StartPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

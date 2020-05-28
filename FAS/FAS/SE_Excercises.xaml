@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FAS.SE_Excercises">
+
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="New Excercise" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <ListView x:Name="lv_Exercise_Overview">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding name}">
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Entry x:Name="exce" ReturnType="Done" Completed="SaveExce"></Entry>
+        <Button Text="Back to Start and collect 200€" Clicked="BacktoStart"></Button>
+    </StackLayout>
+
+</ContentPage>
