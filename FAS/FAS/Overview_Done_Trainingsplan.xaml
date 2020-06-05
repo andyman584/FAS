@@ -7,8 +7,6 @@
              x:Class="FAS.Overview_Done_Trainingsplan">
 
     <StackLayout>
-
-
         <Frame BackgroundColor="red" BorderColor="Black" Padding="0">
             <Grid Padding="0">
                 <Grid.ColumnDefinitions>

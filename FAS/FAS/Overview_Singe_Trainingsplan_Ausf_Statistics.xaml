@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              mc:Ignorable="d"
-             x:Class="FAS.Overview_Singe_Trainingsplan_Ausf">
+             x:Class="FAS.Overview_Singe_Trainingsplan_Ausf_Statistics">
 
     <StackLayout>
+        <Button Text="Change per Workout" Clicked="GoGoStatistics"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
         <Label x:Name="ltp" Text="Trainingsplan: " HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
         <Label x:Name="lcnt" Text="Ausführungen: " HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        
-        
+
+        <forms:ChartView x:Name="balken" HeightRequest="150"></forms:ChartView>
         
         <Button Text="Go back to Start and Collect 200€" Clicked="ToStartPage" />
     </StackLayout>

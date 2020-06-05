@@ -1,6 +1,5 @@
 ﻿using SQLite;
 using System;
-using Xamarin.Forms;
 
 namespace FAS
 {
@@ -14,10 +13,8 @@ namespace FAS
         public int exc_id { get; set; }
         public string name { get; set; }
 
-        /*
         public string cat { get; set; }
         public string bpart { get; set; }
         public Boolean bodywheight { get; set; }
-        */
     }
 }

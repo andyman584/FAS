@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FAS.SE_Excercises">
+             x:Class="FAS.Strength_New_Excercise">
 
     <StackLayout>
         <!-- Place new controls here -->
@@ -17,8 +17,20 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+        <Label Text="New Excercise Name"/>
+        <Entry x:Name="exce"></Entry>
 
-        <Entry x:Name="exce" ReturnType="Done" Completed="SaveExce"></Entry>
+        <Label Text="Exercise Kategory"/>
+        <Entry x:Name="cat"></Entry>
+
+        <Label Text="Which Bodypart is focused"/>
+        <Picker x:Name="bpart"></Picker>
+
+        <Label Text="Is it a Bodywheight Exercise"/>
+        <CheckBox x:Name="body" IsChecked="False"></CheckBox>
+
+        <Button Text="New Excercise" Clicked="SaveExce"></Button>
         <Button Text="Back to Start and collect 200€" Clicked="BacktoStart"></Button>
     </StackLayout>
 

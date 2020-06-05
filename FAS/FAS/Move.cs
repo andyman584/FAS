@@ -1,10 +1,8 @@
 ﻿using SQLite;
-using System;
-using Xamarin.Forms;
 
 namespace FAS
 {
-    internal class Move
+    public class Move
     {
         public Move()
         {

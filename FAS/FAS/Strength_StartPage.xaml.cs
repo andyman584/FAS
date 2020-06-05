@@ -1,12 +1,9 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -33,15 +30,17 @@ namespace FAS
                     IEnumerable<Trainingsplan_Basic> foo = db.Query<Trainingsplan_Basic>("SELECT * from Trainingsplan_Basic");
                     List<Trainingsplan_Basic> trainingsplans = foo.ToList<Trainingsplan_Basic>();
                     lv_Overview.ItemsSource = trainingsplans;
-                } catch {
+                }
+                catch
+                {
 
-                } 
+                }
             }
         }
 
         private void ToExcercises(object sender, EventArgs e)
         {
-            App.Current.MainPage = new SE_Excercises();
+            App.Current.MainPage = new Strength_New_Excercise();
         }
 
         private void ToTrainingsplan(object sender, EventArgs e)
@@ -52,14 +51,14 @@ namespace FAS
 
         private void ToOverview(object sender, EventArgs e)
         {
-            Trainingsplan_Basic tp = (Trainingsplan_Basic) lv_Overview.SelectedItem;
+            Trainingsplan_Basic tp = (Trainingsplan_Basic)lv_Overview.SelectedItem;
             App.Current.MainPage = new Overview_Single_Trainingsplan(tp);
         }
 
         private void ToAusfOverview(object sender, EventArgs e)
         {
-            Trainingsplan_Basic tp = (Trainingsplan_Basic) lv_Overview.SelectedItem;
-            App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf(tp);
+            Trainingsplan_Basic tp = (Trainingsplan_Basic)lv_Overview.SelectedItem;
+            App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf_Change(tp);
         }
 
         private void lv_Overview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -72,6 +71,12 @@ namespace FAS
         private void NewTrainingsplan(object sender, EventArgs e)
         {
             App.Current.MainPage = new New_Trainingsplan();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            App.Current.MainPage = new StartPage();
+            return true;
         }
     }
 }

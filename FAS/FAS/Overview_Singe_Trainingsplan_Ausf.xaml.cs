@@ -1,12 +1,6 @@
-﻿using Akavache.Sqlite3;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -15,37 +9,28 @@ namespace FAS
     [DesignTimeVisible(false)]
     public partial class Overview_Singe_Trainingsplan_Ausf : ContentPage
     {
-        private Trainingsplan_Basic tp;
+        private Trainingsplan_Basic tpb;
 
         public Overview_Singe_Trainingsplan_Ausf(Trainingsplan_Basic tp)
         {
             InitializeComponent();
-            this.tp = tp;
+            this.tpb = tp;
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            try { 
-                var db = new SQLiteConnection(App.filePath);
-                IEnumerable<Ausführung> foo = db.Query<Ausführung>("select * from Ausführung where trainingsplan_id = ?", tp.tp_id);
-                List<Ausführung> ausf = foo.ToList<Ausführung>();
-
-                lv_Done.ItemsSource = ausf;
-            } catch { 
-
-            }
         }
-
-        private void ToStartPage(object sender, EventArgs e)
+        private void GoGoStatistics(object sender, System.EventArgs e)
         {
-            App.Current.MainPage = new Strength_StartPage();
+            //App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf_Change(tpb);          
         }
 
-        private void GoGoStatistics(object sender, EventArgs e)
+        protected override bool OnBackButtonPressed()
         {
-            App.Current.MainPage = new Strength_StartPage();
+            App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf_Change(tpb);
+            return true;
         }
+
     }
 }

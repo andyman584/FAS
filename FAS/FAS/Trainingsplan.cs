@@ -1,6 +1,6 @@
 ﻿using SQLite;
 namespace FAS
-{    
+{
     public class Trainingsplan
     {
         public Trainingsplan()
@@ -14,7 +14,7 @@ namespace FAS
         public int exce_id { get; set; }
         public string name { get; set; }
 
-        
+
 
 
     }

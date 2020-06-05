@@ -11,14 +11,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="akavache.sqlite3" Version="6.10.17" />
+    <PackageReference Include="Microcharts" Version="0.7.1" />
+    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
+    <PackageReference Include="SkiaSharp" Version="1.68.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="System.ObjectModel" Version="4.3.0" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.800" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Moving_Execution.xaml.cs">
+      <DependentUpon>Moving_Execution.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Singe_Trainingsplan_Ausf_Change.xaml.cs">
+      <DependentUpon>Overview_Singe_Trainingsplan_Ausf_Change.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Overview_Singe_Trainingsplan_Ausf.xaml.cs">
+      <DependentUpon>Overview_Singe_Trainingsplan_Ausf.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Strength_Execution.xaml.cs">
       <DependentUpon>Strength_Execution.xaml</DependentUpon>
     </Compile>
@@ -28,11 +41,8 @@
     <Compile Update="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Overview_Singe_Trainingsplan_Ausf_Statistic.xaml.cs">
-      <DependentUpon>Overview_Singe_Trainingsplan_Ausf_Statistic.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Overview_Singe_Trainingsplan_Ausf.xaml.cs">
-      <DependentUpon>Overview_Singe_Trainingsplan_Ausf.xaml</DependentUpon>
+    <Compile Update="Overview_Singe_Trainingsplan_Ausf_Statistics.xaml.cs">
+      <DependentUpon>Overview_Singe_Trainingsplan_Ausf_Statistics.xaml</DependentUpon>
     </Compile>
     <Compile Update="Overview_Single_Trainingsplan.xaml.cs">
       <DependentUpon>Overview_Single_Trainingsplan.xaml</DependentUpon>
@@ -43,8 +53,8 @@
     <Compile Update="SE_Trainingsplan.xaml.cs">
       <DependentUpon>SE_Trainingsplan.xaml</DependentUpon>
     </Compile>
-    <Compile Update="SE_Excercises.xaml.cs">
-      <DependentUpon>SE_Excercises.xaml</DependentUpon>
+    <Compile Update="Strength_New_Excercise.xaml.cs">
+      <DependentUpon>Strength_New_Excercise.xaml</DependentUpon>
     </Compile>
     <Compile Update="Overview_Done_Trainingsplan.xaml.cs">
       <DependentUpon>Overview_Done_Trainingsplan.xaml</DependentUpon>
@@ -55,5 +65,9 @@
     <Compile Update="Strength_StartPage.xaml.cs">
       <DependentUpon>Strength_StartPage.xaml</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Microcharts\" />
   </ItemGroup>
 </Project>

@@ -1,21 +1,17 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class SE_Excercises : ContentPage
+    public partial class Strength_New_Excercise : ContentPage
     {
-        public SE_Excercises()
+        public Strength_New_Excercise()
         {
             InitializeComponent();
         }
@@ -24,13 +20,33 @@ namespace FAS
         {
             base.OnAppearing();
             ReadExcercises();
+
+            List<String> bpart_List = new List<string>();
+            bpart_List.Add("Bizeps");
+            bpart_List.Add("Trizeps");
+            bpart_List.Add("Brust");
+            bpart_List.Add("Rücken");
+            bpart_List.Add("Schultern");
+            bpart_List.Add("Glutes");
+            bpart_List.Add("Beine");
+            bpart_List.Add("Abs");
+            bpart_List.Add("Compound");
+            bpart_List.Add("Cardio");
+
+            foreach (String element in bpart_List)
+            {
+                bpart.Items.Add(element);
+            }
         }
 
         private void SaveExce(object sender, EventArgs e)
         {
             Excercise exc = new Excercise()
             {
-                name = exce.Text
+                name = exce.Text,
+                cat = cat.Text,
+                bpart = bpart.SelectedItem.ToString(),
+                bodywheight = body.IsChecked
             };
 
             using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
@@ -40,7 +56,6 @@ namespace FAS
             }
             exce.Text = "";
             ReadExcercises();
-            
         }
 
         private void ReadExcercises()
@@ -57,21 +72,10 @@ namespace FAS
             App.Current.MainPage = new Strength_StartPage();
         }
 
-        /*
-        // ----------------------- TO DO -> Umstellung PK für Datenbanken --------------------
-        private void DeleteSelected(object sender, EventArgs e)
+        protected override bool OnBackButtonPressed()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
-            {
-                Excercise ex = (Excercise) lv_Exercise_Overview.SelectedItem;
-                string sex = ex.name;
-
-                conn.CreateTable<Excercise>();
-                conn.Delete<Excercise>(sex);
-            }
-
-            ReadExcercises();
+            App.Current.MainPage = new Strength_StartPage();
+            return true;
         }
-        */
     }
 }

@@ -20,7 +20,7 @@
         </ListView>
 
         <Button Text="Create a new One" Clicked="NewExercise" />
-        <Button x:Name="Do" Text="Do The Exercise" IsEnabled="False" Clicked="To" />
+        <Button x:Name="Do" Text="Do The Exercise" IsEnabled="False" Clicked="ToMoveOrNotToMove" />
         <Button x:Name="Check" Text="Check your Ausführungen" IsEnabled="False" Clicked="ToAusfOverview" />
     </StackLayout>
 

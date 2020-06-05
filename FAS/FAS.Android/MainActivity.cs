@@ -1,14 +1,8 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-using Android.Graphics;
-using System.IO;
-using Android.Support.V7.Widget;
+using Android.Runtime;
 
 namespace FAS.Droid
 {
@@ -29,6 +23,7 @@ namespace FAS.Droid
             string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             string completePath = System.IO.Path.Combine(folderPath, fileName);
             LoadApplication(new App(completePath));
+
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

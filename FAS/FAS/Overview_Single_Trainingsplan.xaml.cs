@@ -1,12 +1,9 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -26,7 +23,7 @@ namespace FAS
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            List<String> exces = new List<string>() ;
+            List<String> exces = new List<string>();
 
             using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
             {
@@ -42,7 +39,7 @@ namespace FAS
                     foreach (Excercise ex in doo)
                     {
                         exces.Add(ex.name);
-                    }                    
+                    }
                 }
 
                 lv_Overview.ItemsSource = exces;
@@ -51,7 +48,7 @@ namespace FAS
 
         private void ToExcercises(object sender, EventArgs e)
         {
-            App.Current.MainPage = new SE_Excercises();
+            App.Current.MainPage = new Strength_New_Excercise();
         }
 
         private void ToTrainingsplan(object sender, EventArgs e)
@@ -65,7 +62,7 @@ namespace FAS
         }
         private void ToMainPage(object sender, EventArgs e)
         {
-            App.Current.MainPage = new MainPage(tp, 1);
+            App.Current.MainPage = new Strength_Execution(tp, 1);
         }
     }
 }

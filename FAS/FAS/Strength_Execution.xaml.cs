@@ -1,10 +1,8 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
 using Xamarin.Forms;
 
 namespace FAS
@@ -33,23 +31,25 @@ namespace FAS
 
             GetTrainingsplanData();
             //Get or Create Execution ID
-            try {
+            try
+            {
                 var db_execution = new SQLiteConnection(App.filePath);
-                IEnumerable<Ausführung> ausf = db_execution.Query<Ausführung>("Select execution_id FROM Ausführung");
-                List<Ausführung> af = ausf.ToList<Ausführung>();
+                IEnumerable<Excercise_Ausführung> ausf = db_execution.Query<Excercise_Ausführung>("Select execution_id FROM Excercise_Ausführung");
+                List<Excercise_Ausführung> af = ausf.ToList<Excercise_Ausführung>();
 
-                foreach (Ausführung element in af)
+                foreach (Excercise_Ausführung element in af)
                 {
                     cur_execution = element.execution_id;
                 }
                 cur_execution++;
-            } catch  {
+            }
+            catch
+            {
                 using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
                 {
-                    conn.CreateTable<Ausführung>();
+                    conn.CreateTable<Excercise_Ausführung>();
                     cur_execution = 0;
                 }
-
             }
         }
         public Strength_Execution(Trainingsplan_Basic tp, int excerciseNumber, int excecutionNumber)
@@ -66,7 +66,7 @@ namespace FAS
 
         private void Last_Excercise(object sender, EventArgs e)
         {
-            Ausführung a = new Ausführung()
+            Excercise_Ausführung a = new Excercise_Ausführung()
             {
                 execution_id = cur_execution,
                 trainingsplan_id = cur_tp.tp_id,
@@ -80,7 +80,7 @@ namespace FAS
 
             using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
             {
-                conn.CreateTable<Ausführung>();
+                conn.CreateTable<Excercise_Ausführung>();
                 int RowsAdded = conn.Insert(a);
             }
 
@@ -89,7 +89,7 @@ namespace FAS
 
         private void Next_Excercise(object sender, EventArgs e)
         {
-            Ausführung a = new Ausführung()
+            Excercise_Ausführung a = new Excercise_Ausführung()
             {
                 execution_id = cur_execution,
                 trainingsplan_id = cur_tp.tp_id,
@@ -103,12 +103,18 @@ namespace FAS
 
             using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
             {
-                conn.CreateTable<Ausführung>();
+                conn.CreateTable<Excercise_Ausführung>();
                 int RowsAdded = conn.Insert(a);
             }
 
             cur_exercise++;
             App.Current.MainPage = new Strength_Execution(cur_tp, cur_exercise, cur_execution);
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            App.Current.MainPage = new Strength_StartPage();
+            return true;
         }
 
         private void GetTrainingsplanData()
@@ -148,8 +154,7 @@ namespace FAS
                     i++;
                 }
             }
-        }               
+        }
     }
 }
 
-           

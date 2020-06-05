@@ -1,12 +1,7 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -22,7 +17,7 @@ namespace FAS
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();        
+            base.OnAppearing();
         }
 
         void SaveTp(object sender, System.EventArgs e)
@@ -48,6 +43,12 @@ namespace FAS
         private void BackToStart(object sender, EventArgs e)
         {
             App.Current.MainPage = new Strength_StartPage();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            App.Current.MainPage = new Strength_StartPage();
+            return true;
         }
     }
 }

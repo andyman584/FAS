@@ -1,12 +1,7 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -22,7 +17,7 @@ namespace FAS
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();        
+            base.OnAppearing();
         }
 
         void SaveMove(object sender, System.EventArgs e)
@@ -42,7 +37,7 @@ namespace FAS
                 int RowsAdded = conn.Insert(m);
             }
 
-            App.Current.MainPage = new Strength_StartPage();
+            App.Current.MainPage = new Moving_StartPage();
         }
 
         private void BackToStart(object sender, EventArgs e)

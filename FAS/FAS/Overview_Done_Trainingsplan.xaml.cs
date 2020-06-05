@@ -1,12 +1,9 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -15,9 +12,9 @@ namespace FAS
     [DesignTimeVisible(false)]
     public partial class Overview_Done_Trainingsplan : ContentPage
     {
-        private Ausführung af;
+        private Excercise_Ausführung af;
 
-        public Overview_Done_Trainingsplan(Ausführung af)
+        public Overview_Done_Trainingsplan(Excercise_Ausführung af)
         {
             InitializeComponent();
             this.af = af;
@@ -28,8 +25,8 @@ namespace FAS
             base.OnAppearing();
 
             var db = new SQLiteConnection(App.filePath);
-            IEnumerable<Ausführung> foo = db.Query<Ausführung>("select * from Ausführung where execution_id = ?", af.execution_id);
-            List<Ausführung> ausf = foo.ToList<Ausführung>();
+            IEnumerable<Excercise_Ausführung> foo = db.Query<Excercise_Ausführung>("select * from Excercise_Ausführung where execution_id = ?", af.execution_id);
+            List<Excercise_Ausführung> ausf = foo.ToList<Excercise_Ausführung>();
 
             lv_Done.ItemsSource = ausf;
 

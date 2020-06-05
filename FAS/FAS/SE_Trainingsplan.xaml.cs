@@ -1,13 +1,9 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
-using System.Linq.Expressions;
 
 namespace FAS
 {
@@ -28,11 +24,11 @@ namespace FAS
             readExercises();
 
             //Read the Exercises
-            using (SQLiteConnection conn = new SQLiteConnection(App.filePath)) 
+            using (SQLiteConnection conn = new SQLiteConnection(App.filePath))
             {
                 conn.CreateTable<Excercise>();
                 var exces = conn.Table<Excercise>().ToList();
-             
+
                 foreach (Excercise element in exces)
                 {
                     pExce.Items.Add(element.name);
@@ -74,10 +70,10 @@ namespace FAS
             var exceName = pExce.SelectedItem.ToString();
             IEnumerable<Excercise> foo = db.Query<Excercise>("select * from Excercise where name = ?", exceName);
             List<Excercise> exces = foo.ToList<Excercise>();
-            
+
             foreach (Excercise element in exces)
             {
-                eID = element.exc_id;             
+                eID = element.exc_id;
             }
 
             //Übung finden und Trainingsplan Element mit Übung erstellen

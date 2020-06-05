@@ -1,12 +1,9 @@
-﻿using Akavache.Sqlite3;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using SQLite;
 
 namespace FAS
 {
@@ -33,9 +30,11 @@ namespace FAS
                     IEnumerable<Move> foo = db.Query<Move>("SELECT * from Move");
                     List<Move> moves = foo.ToList<Move>();
                     lv_Overview.ItemsSource = moves;
-                } catch {
+                }
+                catch
+                {
 
-                } 
+                }
             }
         }
 
@@ -46,15 +45,21 @@ namespace FAS
 
         private void ToMoveOrNotToMove(object sender, EventArgs e)
         {
-            Move m = (Move) lv_Overview.SelectedItem;
-            App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf(m);
+            Move m = (Move)lv_Overview.SelectedItem;
+            App.Current.MainPage = new Moving_Execution(m);
         }
 
+        //TO DO
         private void ToAusfOverview(object sender, EventArgs e)
         {
-            Trainingsplan_Basic tp = (Trainingsplan_Basic) lv_Overview.SelectedItem;
-            App.Current.MainPage = new Overview_Singe_Trainingsplan_Ausf(tp);
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            App.Current.MainPage = new StartPage();
+            return true;
+        }
+
 
         private void lv_Overview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
